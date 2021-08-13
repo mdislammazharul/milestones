@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            color:lightseagreen;
+        }
+        h1:hover{
+            color:magenta;
+            background-color: mediumorchid;
+            margin: 50px;
+            padding: 15px;
+            font: 100;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: 900;
+        }
+        .middle-person:focus{
+            color:blue;
+            font-weight: 800;
+        }
+        li:first-child{
+            color:chocolate;
+        }
+        li:last-child{
+            background-color:cornflowerblue;
+        }
+        li:nth-child(2n+1){
+            color: greenyellow;
+            background-color: darkgoldenrod;
+        }
+        h1::before{
+            content: 'love you';
+        }
+        .sagol::after{
+            content: 'bristi asse';
+        }
+    </style>
+</head>
+<body>
+    <h1>This is Normal</h1>
+    <input type="text">
+    <input class="middle-person" type="text">
+    <input type="text">
+    <br>
+    <a href="https://www.google.com">Google e jaw</a>
+    <a href="https://www.instagram.com">Google e jaw</a>
+    <ul>
+        <li class="pagol">alia</li>
+        <li>dalia</li>
+        <li>kalia</li>
+        <li class="pagol">jalia</li>
+        <li class="sagol">halia</li>
+        <li>falia</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handlers</title>
+</head>
+
+<body>
+    <p id="on-Click"></p>
+    <input type="text" id="inputText">
+    <button id="textButton">Update</button>
+    <button id="button-id">Click Me</button>
+    <script>
+        //direct add event add listener
+        document.getElementById('button-id').addEventListener('click', function () {
+            const p = document.getElementById('on-Click');
+            p.innerText = 'set by direct add event listener';
+        })
+
+        // button text input
+        document.getElementById('textButton').addEventListener('click', function () {
+            const inputtext = document.getElementById('inputText');
+            const p = document.getElementById('on-Click');
+            p.innerText = inputtext.value;
+            inputtext.value = '';
+        })
+
+    </script>
+
+</body>
+
+</html>
