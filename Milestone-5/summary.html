@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Summary</title>
+</head>
+
+<body>
+    <h1 id="mouse-header-move">Mouse Move</h1>
+    <h1 id="mouse-header-out">Mouse Out</h1>
+    <input id="email-field" type="text" placeholder="Your Email Address">
+    <button onclick="handleClickGreen()">Click Me: Green</button>
+    <script>
+        // way-1
+        function handleClickGreen() {
+            document.body.style.backgroundColor = 'green';
+        }
+        // way-2
+        document.getElementById('email-field').addEventListener('keyup', function () {
+            console.log('good');
+        })
+        // way-3
+        document.getElementById('email-field').addEventListener('keyup', function (event) {
+            console.log(event.target.value);
+        })
+        // way-4
+        document.getElementById('mouse-header').addEventListener('mousemove', function () {
+            console.log('mouse moving!!')
+        })
+        // way-5
+        document.getElementById('mouse-header').addEventListener('mouseout', function () {
+            console.log('mouse moving!!')
+        })
+
+    </script>
+</body>
+
+</html>
