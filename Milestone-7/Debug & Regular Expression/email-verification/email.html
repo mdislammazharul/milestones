@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification</title>
+    <style>
+        /* display none at the start of the page */
+        #valid {
+            display: none;
+        }
+
+        #notValid {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Email Verification</h1>
+    <input id="email-text" type="text"> <br> <br>
+    <button onclick="verifyBtn()">Verify</button>
+    <h5 style="color: green" id="valid">Your Email is Valid</h5>
+    <h5 style="color: red" id="notValid">Your Email is Wrong</h5>
+    <script src="email.js"></script>
+</body>
+
+</html>
