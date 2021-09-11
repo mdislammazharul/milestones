@@ -20,3 +20,36 @@ console.log(evenNumber);
 const oddNumber = numbers.find(number => number === 7);
 console.log(oddNumber);
 
+//-----------------
+
+// array like object-map
+const students = [
+    { name: 'jalil', roll: 2, batch: 7 },
+    { name: 'khalil', roll: 6, batch: 8 },
+    { name: 'rahim', roll: 8, batch: 9 },
+    { name: 'karim', roll: 1, batch: 10 },
+    { name: 'halim', roll: 3, batch: 6 },
+]
+
+// linear variable
+const id = students.forEach(student => {
+    console.log(student.roll);
+})
+
+// array output
+const id2 = students.map(student => student.roll)
+console.log(id2);
+
+// convert linear output to array
+const arr = [];
+const id3 = students.forEach(student => {
+    arr.push(student.roll);
+})
+console.log(arr);
+
+// Object.values
+const values = students.map(student => {
+    const keys = Object.values(student);
+    console.log(keys);
+});
+
