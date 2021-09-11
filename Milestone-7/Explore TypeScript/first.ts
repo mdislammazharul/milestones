@@ -16,10 +16,11 @@ function add(first: number, second: number): number {
 const output: number = add(45, 87)
 
 // multipurpose: we can use two type string & number
-function addMore(first: number | string, second: number | string): number | string {
-    const result: string | number = first + second;
-    return result;
-}
+// >>>>>>>
+// function addMore(first: number | string, second: number | string): number | string {
+//     const result: string | number = first + second; // it has a potential error
+//     return result;
+// }
 
-const outputMore: number = add(45, 87)
-const fullName = addMore('Adam', 'Smith');
+// const outputMore: number = add(45, 87);
+// const fullName = addMore('Adam', 'Smith');
