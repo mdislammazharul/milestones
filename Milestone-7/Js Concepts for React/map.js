@@ -53,3 +53,7 @@ const values = students.map(student => {
     console.log(keys);
 });
 
+// for of
+for (const student of students) {
+    console.log(student);
+}
