@@ -1,0 +1,90 @@
+
+
+2. what call stack does?
+ans: push a console log inside a call stack and then execute it, then remove it.
+for example:
+
+const one () => {
+	const two = () => {
+		console.log("4");
+	}
+	two();
+}
+
+now if we call--> one()
+then, call stack works look like-
+---------------------------------
+
+console.log("4")
+two()
+one()
+
+now, it will firstly remove --> console.log("4)
+then --> two()
+then --> one()
+
+here, one() inserted into call stack firstly, but poped out lastly. So, it is First In Last Out (FILO) method.
+
+4. what does single threaded meaning?
+ans: can execute only one call stack at a time. 
+
+5. why it is single threaded?
+ans: because, single threaded is simple. mulithread has deadlocks.
+
+6. when stack overflow happens?
+ans: inside recursion. if there is no base termination.
+example:
+function foo () {
+	foo ()
+}
+
+foo ()
+
+7. what problem occours in synchronous system?
+ans: in webpages, a user have to wait untill a the first execution has completed.
+
+8. benefits of asynchronous.
+ans: when we call api, or load an image, then it takes more time. so, if we make an asynchronous system, then the website can load/execute other instructions when parallely the api/images loads.
+
+9. what javascript run-time environment have?
+ans: 
+1. call stack
+2. web api
+3. callback queue [works for callback function. setInterval has a callback function.]
+4. event loop [check is the call stack is empty or not, when a callback queue appers]
+
+how it works-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

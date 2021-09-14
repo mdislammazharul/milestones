@@ -1,0 +1,89 @@
+https://github.com/gias-uddin-swe?tab=repositories
+
+syntax error:
+--------------------
+1. Uncaught SyntaxError: Indentifier 'a' has already been declared.
+[a = 'mazhar'
+ a = 5]
+
+2. Uncaught SyntaxError: Unexpected token '}'
+[ '{' bracket mistake in previous line ]
+
+ReferenceError:
+--------------------
+when we use a varibale, that is not initialized yet.
+
+1. Uncaught ReferenceError: Cannot access 'a' before initialization
+[console.log (a)
+const a = "hero alam";
+
+if we use 'var' => undefined (hoisting)
+if we use 'let' => Uncaught SyntaxError]
+
+2. Uncaught ReferenceError: resut is not defined
+[ const result = "hero alam"
+console.log (resut)
+
+we should use 'result' inside console.log
+** mainly spealing mistake occours the error]
+
+3. Uncaught ReferenceError: functionName is not defined
+[when we call a function with incorrect function name, then the error occurs]
+
+TypeError:
+--------------------
+it is actually DataType error. suppose we want to use (for ... in) on array type object, the the error will occur. Because, (for ... in) => object, (for ... of) => array.
+another example: HTMLelement.value => used for 'input' type tag only
+		 HTMLelement.innerText => used for 'h1' type tag
+
+
+1. Uncaught TypeError: Assignment to constant variable.
+[ const a = 5;
+  a = 10;
+we cannot change a 'constant' variable]
+
+2. Uncaught TypeError: Cannot set properties of Null
+[suppose, we have an id in html file named "element",
+now if we call it from js file like this-
+document.getElementById("elemet").innerText = "mazhar" ,
+then this error will occur. why?
+because, we mispelled the 'element' in js file --> 'elemet'.
+that's why the -- document.getElementById("elemet") -- is NULL now, so cannot set the property 'innerText' on the Null. that's why it is a TypeError.]
+
+3. Uncaught TypeError: Cannot read property 'map' of undefined
+
+
+4. Uncaught TypeError: Cannot read property 'map' of null
+
+
+5. Uncaught TypeError: Cannot read property 'Length' of undefined
+
+
+6. Uncaught TypeError: obj is not iterable
+[if we try to use ( for ... of ) on a Object, then the error will occur]
+
+7. Uncaught TypeError: obj.map is not a function
+[if we try to use map on a object... because we cannot use map/find method on a object. we have to use it on array only. but if there are some objects inside the array, then the error will not occur.]
+
+try catch -- throw
+----------------------
+try catch works for --> runtime error (reference error), not for syntax error
+
+try {
+
+if (condition) {
+   throw ()
+}
+
+}
+
+catch (error) {
+   console.log(error.message)
+}
+
+finally {
+
+}
+
+
+ 
