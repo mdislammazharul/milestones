@@ -1,4 +1,7 @@
-
+1. what is javascript engine?
+ans: in chrome, it uses V8, its a js engine. it makes our js code executable to machine. this engine has two part-
+1. memory heap [it allocates memory for variables in program]
+2. it lists down the task what is going to be executed sequentially.
 
 2. what call stack does?
 ans: push a console log inside a call stack and then execute it, then remove it.
@@ -49,12 +52,16 @@ ans: when we call api, or load an image, then it takes more time. so, if we make
 9. what javascript run-time environment have?
 ans: 
 1. call stack
-2. web api
-3. callback queue [works for callback function. setInterval has a callback function.]
+2. web api [DOM, AJAX, Timeout]
+3. callback queue [works for callback function. setInterval has a callback function. onClick, onLoad, onDone]
 4. event loop [check is the call stack is empty or not, when a callback queue appers]
 
 how it works-->
+take an example. I have a question to my teacher. Now I can do this in two ways-
+1. By calling over phone
+2. send a message including the questions to the teacher
 
+in first case, if i call him over phone, then i have to wait untill he receives. this is synchronous system. but if i message him, then after sending the text, i can do other stuffs in between his replies. when he call me back, then if I'm not stacked with other jobs, then imidiately i can receive his phone. so this is asynchronous system. it increases the productivity.
 
 
 
