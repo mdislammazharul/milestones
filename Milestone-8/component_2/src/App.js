@@ -1,16 +1,42 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
 
   return (
     <div className="App">
-      {
-        <Counter></Counter>
-      }
+      {/* <Counter></Counter> */}
+      <ExternalUsers></ExternalUsers>
     </div>
   );
+}
+
+function ExternalUsers() {
+  // to load data from API, firstly we have to setup a state
+  const [users, setUsers] = useState([]); // if the API cannot be loaded for any reason, then the array's default value will be --> empty array
+  useEffect(() => { // useEffect((),[]) --> useEffect(arrow function, empty array)
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(res => res.json())
+      .then(data => setUsers(data))
+  }, [])
+  return (
+    <div>
+      <h3>External Users</h3>
+      {
+        users.map(user => <User name={user.name} email={user.email}></User>)
+      }
+    </div>
+  )
+}
+
+function User(props) {
+  return (
+    <div className="product">
+      <h2>name: {props.name}</h2>
+      <p>email: {props.email}</p>
+    </div>
+  )
 }
 
 function Counter() {
