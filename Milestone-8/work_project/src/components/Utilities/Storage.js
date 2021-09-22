@@ -1,4 +1,12 @@
 function add(num1, num2) {
     return num1 + num2
 }
-export { add }
+function multiply(num1, num2) {
+    return num1 * num2
+}
+
+// reduce
+
+
+
+export { add, multiply }
