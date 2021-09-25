@@ -1,7 +1,7 @@
 import React from 'react';
-import './AllUsers'
+import './Concert.css'
 
-const AllUsers = () => {
+const Concert = () => {
     return (
         <div>
 
@@ -9,4 +9,4 @@ const AllUsers = () => {
     );
 };
 
-export default AllUsers;
+export default Concert;
