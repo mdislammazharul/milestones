@@ -14,15 +14,12 @@ const Concert = () => {
 
     // 
     const [cost, setCost] = useState([]);
-    // const [displayProducts, setDisplayProducts] = useState([]);
 
     const handleCost = (band) => {
+        band.isAdded = true;
         const newBand = [...cost, band]
         setCost(newBand)
-        // console.log(newBand)
     }
-
-
 
     return (
         <div className="container">

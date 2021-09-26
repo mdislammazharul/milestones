@@ -22,12 +22,12 @@ const Bands = (props) => {
                     <div className="button">
                         {
                             props.band.isAdded ? (
-                                <button className="btn btn-danger mt-3">Already Added</button>
+                                <button className="btn btn-danger mt-3"><i class="fas fa-guitar"></i> <strong>Already Added</strong></button>
                             ) : (
-                                <button onClick={() => props.handleCost(props.band)} className="btn btn-warning mt-3">Add to Lsit</button>
+                                <button onClick={() => props.handleCost(props.band)} className="btn btn-warning mt-3"><i class="fas fa-guitar"></i> <strong>Add to Lsit</strong></button>
                             )
                         }
-                        <button className="btn btn-danger mt-3">Watch</button>
+                        <button className="btn btn-danger mt-3"><i class="fab fa-youtube"></i> Watch</button>
                     </div>
                 </div>
             </div>
