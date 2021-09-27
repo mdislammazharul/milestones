@@ -1,5 +1,6 @@
 import React from 'react';
 import './Bands.css'
+// import Rating from 'react-rating';
 
 const Bands = (props) => {
     // console.log(props);
@@ -15,7 +16,13 @@ const Bands = (props) => {
                     <p className="card-text text-light">Genre: {category}</p>
                     <p className="card-text text-light">Establish: {establish}</p>
                     <p className="card-text text-light">Total Albums: {albums}</p>
-                    <p className="card-text text-light">Star: {star}</p>
+                    {/* <Rating
+                        initialRating={star}
+                        emptySymbol="far fa-star icon-color"
+                        fullSymbol="fas fa-star icon-color"
+                        readonly>
+                    </Rating> */}
+                    {/* <p className="card-text text-light">Star: {star}</p> */}
                     <p className="card-text text-light">Star: {starCount}</p>
                     <h4 className="card-text text-light">Budget: <strong className="text-warning">{rate}</strong> BDT</h4>
 
