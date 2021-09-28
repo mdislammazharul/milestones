@@ -1,20 +1,16 @@
 import './App.css';
-import { useSpring, animated } from 'react-spring'
-import { useState } from 'react';
+import Home from './components/Home/Home';
+import Friends from './components/Friends/Friends';
+import About from './components/About/About';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
-  const [flip, set] = useState(false)
-  const props = useSpring({
-    to: { opacity: 1 },
-    from: { opacity: 0 },
-    reset: true,
-    reverse: flip,
-    delay: 200,
-    onRest: () => set(!flip),
-  })
   return (
     <div className="App">
-      <animated.h1 style={props}>hello</animated.h1>
+      <Home></Home>
+      <Friends></Friends>
+      <About></About>
+      <NotFound></NotFound>
     </div>
   );
 }
