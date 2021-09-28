@@ -1,10 +1,10 @@
+import logo from './logo.svg';
 import './App.css';
-import { LineChart } from 'recharts';
 
 function App() {
   return (
     <div className="App">
-      <LineChart></LineChart>
+      <p className="text-custom">My Color</p>
     </div>
   );
 }
