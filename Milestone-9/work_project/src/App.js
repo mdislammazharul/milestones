@@ -6,6 +6,7 @@ import Home from './components/Home/Home';
 import NotFound from './components/NotFound/NotFound';
 import Header from './components/Header/Header';
 import FriendDetail from './components/FriendDetail/FriendDetail';
+import PostDetail from './components/PostDetail/PostDetail';
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route path="/friend/:friendId">
             <FriendDetail></FriendDetail>
+          </Route>
+          <Route path="/post/:postId">
+            <PostDetail></PostDetail>
           </Route>
           <Route path="*">
             <NotFound></NotFound>
