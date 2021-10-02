@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
-import GrandFather from './components/GrandFather/GrandFather';
-import { createContext, useState } from 'react';
-
-// create the context name
-export const RingContext = createContext('ring')
+import AllTeams from './components/AllTeams/AllTeams';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import TeamDetails from './components/TeamDetails/TeamDetails';
 
 function App() {
-  const [house, setHouse] = useState(1);
-  const ornaments = 'gold Ring';
   return (
-    <RingContext.Provider value={ornaments}>
-      <div className="App">
-        <button
-          onClick={() => setHouse(house + 1)}
-        >Buy a new House</button>
-        <GrandFather house={house}></GrandFather>
-      </div>
-    </RingContext.Provider>
+    <div className="App">
+      <h1>I'm Header</h1>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <AllTeams></AllTeams>
+          </Route>
+          <Route path="/details/:teamId">
+            <TeamDetails></TeamDetails>
+          </Route>
+        </Switch>
+      </Router>
+      <h1>I'm Footer</h1>
+    </div>
   );
 }
 
