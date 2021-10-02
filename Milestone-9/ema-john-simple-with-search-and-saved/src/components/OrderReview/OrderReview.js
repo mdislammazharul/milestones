@@ -7,6 +7,7 @@ import { clearTheCart, removeFromDb } from '../../utilities/fakedb';
 import { useHistory } from 'react-router';
 
 const OrderReview = () => {
+    // using hook, it makes easy to access from anywhere
     const [products] = useProducts();
     const [cart, setCart] = useCart(products);
     const history = useHistory();
@@ -37,6 +38,7 @@ const OrderReview = () => {
             </div>
             <div className="cart-container">
                 <Cart cart={cart}>
+                    {/* we can use children here. to do this, we have to use {props.children} in Cart.js */}
                     <button onClick={handlePlaceOrder} className="btn-regular">Place Order</button>
                 </Cart>
             </div>

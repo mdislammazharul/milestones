@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react"
 import { getStoredCart } from "../utilities/fakedb";
 
+// useCart has a dependency, thats why here is a parameter --> product
 const useCart = (products) => {
     const [cart, setCart] = useState([]);
 
