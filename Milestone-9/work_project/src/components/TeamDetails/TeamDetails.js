@@ -2,11 +2,14 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { useState } from 'react/cjs/react.development';
 import './TeamDetails.css'
+import male from '../../images/male.png'
+import female from '../../images/female.png'
 
-const TeamDetails = (props) => {
+const TeamDetails = () => {
     const { teamId } = useParams();
+    console.log(teamId);
 
-    const [details, setDetails] = useState([])
+    const [details, setDetails] = useState({})
 
     useEffect(() => {
         fetch(`https://www.thesportsdb.com/api/v1/json/1/lookupteam.php?id=${teamId}`)
@@ -15,19 +18,23 @@ const TeamDetails = (props) => {
     }, [])
 
     return (
-        <div className="details">
-            <h1>Hello I'm team details</h1>
-            <div className="team-details">
-                <div className="male-female">
-                    {
-                        details.strGender == "Male" ? <h5>male Player</h5> : <h5>Female player</h5>
+        <div>
+            <div className="team-container">
+                <div className="male-female logo-img">
+                    {details.strGender === "Male" ?
+                        <img src={male} alt="" /> :
+                        <img src={female} alt="" />
                     }
                 </div>
                 <div className="row">
-                    <div className="cold-md-4">
-                        <img className="w-25" src={details.strTeamBadge} alt="" />
+                    <div className="col-md-6">
+                        <div className="logo-img">
+                            <img src={details.strTeamBadge} alt="" />
+                        </div>
+                        <p>{details.strLeague}</p>
+                        <p>{details.strStadiumDescription}</p>
                     </div>
-                    <div className="cold-md-4">
+                    <div className="col-md-6">
                         <p>{details.strDescriptionEN}</p>
                     </div>
                 </div>
