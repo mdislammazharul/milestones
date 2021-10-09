@@ -1,89 +1,42 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, GithubAuthProvider, FacebookAuthProvider, signOut } from 'firebase/auth';
-import { useState } from 'react';
 import './App.css';
-import initializeAuthentication from './Firebase/firebase.initialize';
-
-initializeAuthentication();
-
-const googleProvider = new GoogleAuthProvider();
-const gitHubProvider = new GithubAuthProvider();
-const facebookProvider = new FacebookAuthProvider();
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Home from './components/Home/Home';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
+import Header from './components/Header/Header';
+import AuthProvider from './context/AuthProvider';
+import Shipping from './components/Shipping/Shipping';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import PlaceOrder from './components/PlaceOrder/PlaceOrder';
 
 function App() {
-  const [user, setUser] = useState({})
-  const auth = getAuth();
-
-  const handleGoogleSignIn = () => {
-    signInWithPopup(auth, googleProvider)
-      .then(result => {
-        const { displayName, email, photoURL } = result.user;
-        const loggedInUser = {
-          name: displayName,
-          email: email,
-          photo: photoURL
-        };
-        setUser(loggedInUser);
-      })
-      .catch(error => {
-        console.log(error.message);
-      })
-  }
-
-  const handleGithubSignIn = () => {
-    signInWithPopup(auth, gitHubProvider)
-      .then(result => {
-        const { displayName, email, photoURL } = result.user;
-        const loggedInUser = {
-          name: displayName,
-          email: email,
-          photo: photoURL
-        };
-        setUser(loggedInUser);
-      })
-      .catch(error => {
-        console.log(error.message);
-      })
-  }
-
-  const handleFacebookSignIn = () => {
-    signInWithPopup(auth, facebookProvider)
-      .then(result => {
-        const { displayName, email, photoURL } = result.user;
-        const loggedInUser = {
-          name: displayName,
-          email: email,
-          photo: photoURL
-        };
-        setUser(loggedInUser);
-      })
-  }
-
-  const handleSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        setUser({});
-      })
-  }
-
   return (
     <div className="App">
-      {!user.name ?
-        <div>
-          <button onClick={handleGoogleSignIn}>Google Sign in</button>
-          <br />
-          <button onClick={handleGithubSignIn}>GitHub Sign in</button>
-          <br />
-          <button onClick={handleFacebookSignIn}>Facebook Sign In</button>
-        </div> :
-        <button onClick={handleSignOut}>Sign Out</button>
-      }
-      {
-        user.email && <div>
-          <h2>Welcome {user.name}</h2>
-          <p>I know your email address: {user.email}</p>
-          <img src={user.photo} alt="" />
-        </div>
-      }
+      <AuthProvider>
+        <BrowserRouter>
+          <Header></Header>
+          <Switch>
+            <Route exact path="/">
+              <Home></Home>
+            </Route>
+            <Route path="/home">
+              <Home></Home>
+            </Route>
+            <Route path="/login">
+              <Login></Login>
+            </Route>
+            <Route path="/register">
+              <Register></Register>
+            </Route>
+            <PrivateRoute path="/shipping">
+              <Shipping></Shipping>
+            </PrivateRoute>
+            <PrivateRoute path="/placeorder">
+              <PlaceOrder></PlaceOrder>
+            </PrivateRoute>
+          </Switch>
+        </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }
