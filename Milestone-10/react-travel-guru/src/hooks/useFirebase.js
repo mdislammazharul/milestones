@@ -21,10 +21,13 @@ const useFirebase = () => {
     const signInUsingGoogle = () => {
         setIsLoading(true);
         const googleProvider = new GoogleAuthProvider();
-        signInWithPopup(auth, googleProvider)
-            .then((result) => {
-                setUser(result.user);
-            })
+        return signInWithPopup(auth, googleProvider)
+            // .then((result) => {
+            //     setUser(result.user);
+            // })
+            // .finally(() => {
+            //     setIsLoading(false);
+            // });
             .finally(() => {
                 setIsLoading(false);
             });
@@ -66,10 +69,10 @@ const useFirebase = () => {
             setError('Password Must be at least 6 characters long.')
             return;
         }
-        // if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
-        //     setError('Password Must contain 2 upper case');
-        //     return;
-        // }
+        if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
+            setError('Password Must contain 2 upper case');
+            return;
+        }
 
         if (isLogin) {
             processLogin(email, password);
@@ -150,6 +153,7 @@ const useFirebase = () => {
         user,
         isLoading,
         isLogin,
+        error,
         signInUsingGoogle,
         signInUsingGithub,
         logOut,

@@ -1,15 +1,24 @@
 // non - customized
 
 import React from 'react';
+import { useHistory, useLocation } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
-    const { handleRegistration, isLogin, handleNameChange, handleEmailChange, handlePasswordChange, toggleLogin, handleResetPassword, signInUsingGoogle, signInUsingGithub } = useAuth();
+    const { handleRegistration, isLogin, handleNameChange, handleEmailChange, handlePasswordChange, toggleLogin, handleResetPassword, signInUsingGoogle, signInUsingGithub, error } = useAuth();
+
+    const location = useLocation();
+    const history = useHistory();
+    const redirect_uri = location.state?.from || '/home'
+
+    const handleGoogleLogin = () => {
+        signInUsingGoogle()
+            .then((result) => {
+                history.push(redirect_uri);
+            })
+    }
+
     return (
-        // <div id="login">
-        //     <h2>Please Login In</h2>
-        //     <button onClick={signInUsingGoogle} className="btn btn-warning">Google Sign In</button>
-        // </div>
         <div className="mx-5">
             <form onSubmit={handleRegistration}>
                 <h3 className="text-primary">Please {isLogin ? 'Login' : 'Register'}</h3>
@@ -41,7 +50,7 @@ const Login = () => {
                         </div>
                     </div>
                 </div>
-                {/* <div className="row mb-3 text-danger">{error}</div> */}
+                <div className="row mb-3 text-danger">{error}</div>
                 <button type="submit" className="btn btn-primary">
                     {isLogin ? 'Login' : 'Register'}
                 </button>
@@ -49,7 +58,7 @@ const Login = () => {
 
             </form>
             <h2>Please Login In</h2>
-            <button onClick={signInUsingGoogle} className="btn btn-warning">Google Sign In</button>
+            <button onClick={handleGoogleLogin} className="btn btn-warning">Google Sign In</button>
             <h2>Please Login In</h2>
             <button onClick={signInUsingGithub} className="btn btn-warning">Github Sign In</button>
         </div>

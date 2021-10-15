@@ -20,6 +20,7 @@ const Header = () => {
                         <Nav.Link as={HashLink} to="/home#homeSection2">section 2</Nav.Link>
                         <Nav.Link as={HashLink} to="/page3">Page3</Nav.Link>
                         <Nav.Link as={HashLink} to="/page4">Page4</Nav.Link>
+                        <Nav.Link as={HashLink} to="/page5">Page5</Nav.Link>
                         {user?.displayName && <Navbar.Text>
                             Signed in as: <a className="me-3" href="#login">{user?.displayName}</a>
                         </Navbar.Text>}
