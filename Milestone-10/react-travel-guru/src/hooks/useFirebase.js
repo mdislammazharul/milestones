@@ -22,12 +22,6 @@ const useFirebase = () => {
         setIsLoading(true);
         const googleProvider = new GoogleAuthProvider();
         return signInWithPopup(auth, googleProvider)
-            // .then((result) => {
-            //     setUser(result.user);
-            // })
-            // .finally(() => {
-            //     setIsLoading(false);
-            // });
             .finally(() => {
                 setIsLoading(false);
             });
@@ -36,11 +30,7 @@ const useFirebase = () => {
     const signInUsingGithub = () => {
         setIsLoading(true);
         const githubProvider = new GithubAuthProvider();
-        signInWithPopup(auth, githubProvider)
-            .then((result) => {
-                setUser(result.user);
-                // console.log(result.user);
-            })
+        return signInWithPopup(auth, githubProvider)
             .finally(() => {
                 setIsLoading(false);
             });

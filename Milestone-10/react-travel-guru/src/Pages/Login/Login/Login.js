@@ -9,10 +9,19 @@ const Login = () => {
 
     const location = useLocation();
     const history = useHistory();
-    const redirect_uri = location.state?.from || '/home'
+    console.log(history);
+    const redirect_uri = location.state?.from || '/home';
+    console.log(location.state?.from);
 
     const handleGoogleLogin = () => {
         signInUsingGoogle()
+            .then((result) => {
+                history.push(redirect_uri);
+            })
+    }
+
+    const handleGithubLogin = () => {
+        signInUsingGithub()
             .then((result) => {
                 history.push(redirect_uri);
             })
@@ -60,7 +69,7 @@ const Login = () => {
             <h2>Please Login In</h2>
             <button onClick={handleGoogleLogin} className="btn btn-warning">Google Sign In</button>
             <h2>Please Login In</h2>
-            <button onClick={signInUsingGithub} className="btn btn-warning">Github Sign In</button>
+            <button onClick={handleGithubLogin} className="btn btn-warning">Github Sign In</button>
         </div>
     );
 };
