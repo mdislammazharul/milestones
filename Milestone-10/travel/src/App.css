@@ -1,0 +1,10 @@
+#footer{
+  position:static;
+  bottom:0px;
+  width:100%;
+}
+
+#body{
+  height: 100vh;
+  margin: 0;
+}
